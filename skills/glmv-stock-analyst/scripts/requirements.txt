@@ -1,0 +1,28 @@
+# 股票分析师 Skill 依赖
+# 安装：pip install -r requirements.txt
+
+# 核心数据源
+akshare>=1.18.0
+yfinance>=1.0.0
+tushare>=1.4.0
+
+# 数据处理
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 图表生成
+matplotlib>=3.7.0
+
+# PDF 处理（纯 Python，无需 poppler）
+pymupdf>=1.23.0
+
+# 报告导出
+fpdf2>=2.7.0
+python-docx>=1.0.0
+Pillow>=10.0.0
+
+# MD→HTML 转换
+markdown>=3.6.0
+
+# 通用
+requests>=2.31.0

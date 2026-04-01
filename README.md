@@ -8,38 +8,39 @@ This repository consolidates skills originally distributed across individual mod
 
 ### GLM-V (Multimodal)
 
-| Skill | Description |
-|-------|-------------|
-| [glmv-caption](skills/glmv-caption) | Generate captions and descriptions for images, videos, and documents |
-| [glmv-doc-based-writing](skills/glmv-doc-based-writing) | Write content (papers, articles, reports) based on PDF/DOCX documents |
-| [glmv-grounding](skills/glmv-grounding) | Object localization with bounding-box visualization in images and videos |
-| [glmv-pdf-to-ppt](skills/glmv-pdf-to-ppt) | Convert PDF documents into multi-slide HTML presentations |
-| [glmv-pdf-to-web](skills/glmv-pdf-to-web) | Convert research papers into polished academic project websites |
-| [glmv-prd-to-app](skills/glmv-prd-to-app) | Build full-stack web applications from PRD documents and prototypes |
-| [glmv-prompt-gen](skills/glmv-prompt-gen) | Generate AI art prompts from visual references (Midjourney, SD, DALL-E, etc.) |
-| [glmv-resume-screen](skills/glmv-resume-screen) | Screen and evaluate resumes against user-defined criteria |
-| [glmv-web-replication](skills/glmv-web-replication) | Create frontend visual replicas of existing websites |
+| Skill                                                   | Description                                                                   |
+| ------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [glmv-caption](skills/glmv-caption)                     | Generate captions and descriptions for images, videos, and documents          |
+| [glmv-doc-based-writing](skills/glmv-doc-based-writing) | Write content (papers, articles, reports) based on PDF/DOCX documents         |
+| [glmv-grounding](skills/glmv-grounding)                 | Object localization with bounding-box visualization in images and videos      |
+| [glmv-pdf-to-ppt](skills/glmv-pdf-to-ppt)               | Convert PDF documents into multi-slide HTML presentations                     |
+| [glmv-pdf-to-web](skills/glmv-pdf-to-web)               | Convert research papers into polished academic project websites               |
+| [glmv-prd-to-app](skills/glmv-prd-to-app)               | Build full-stack web applications from PRD documents and prototypes           |
+| [glmv-prompt-gen](skills/glmv-prompt-gen)               | Generate AI art prompts from visual references (Midjourney, SD, DALL-E, etc.) |
+| [glmv-resume-screen](skills/glmv-resume-screen)         | Screen and evaluate resumes against user-defined criteria                     |
+| [glmv-stock-analyst](skills/glmv-stock-analyst)         | Multi-source stock analysis and report generation for HK/A-share/US markets   |
+| [glmv-web-replication](skills/glmv-web-replication)     | Create frontend visual replicas of existing websites                          |
 
 ### GLM-OCR
 
-| Skill | Description |
-|-------|-------------|
-| [glmocr](skills/glmocr) | General text extraction from images and PDFs |
-| [glmocr-formula](skills/glmocr-formula) | Extract mathematical formulas into LaTeX |
-| [glmocr-handwriting](skills/glmocr-handwriting) | Recognize handwritten text |
-| [glmocr-sdk](skills/glmocr-sdk) | Document parsing via GLM-OCR SDK CLI |
-| [glmocr-table](skills/glmocr-table) | Extract tables into Markdown |
+| Skill                                           | Description                                  |
+| ----------------------------------------------- | -------------------------------------------- |
+| [glmocr](skills/glmocr)                         | General text extraction from images and PDFs |
+| [glmocr-formula](skills/glmocr-formula)         | Extract mathematical formulas into LaTeX     |
+| [glmocr-handwriting](skills/glmocr-handwriting) | Recognize handwritten text                   |
+| [glmocr-sdk](skills/glmocr-sdk)                 | Document parsing via GLM-OCR SDK CLI         |
+| [glmocr-table](skills/glmocr-table)             | Extract tables into Markdown                 |
 
 ### GLM-Image
 
-| Skill | Description |
-|-------|-------------|
+| Skill                                 | Description                                    |
+| ------------------------------------- | ---------------------------------------------- |
 | [glm-image-gen](skills/glm-image-gen) | Generate high-quality images from text prompts |
 
 ### Meta
 
-| Skill | Description |
-|-------|-------------|
+| Skill                                       | Description                                         |
+| ------------------------------------------- | --------------------------------------------------- |
 | [glm-master-skill](skills/glm-master-skill) | Discovery and installation guide for all GLM skills |
 
 ## Installation
@@ -51,7 +52,7 @@ This repository consolidates skills originally distributed across individual mod
 npx clawhub@latest install glmocr
 
 # Install multiple skills at once
-npx clawhub@latest install glmocr glmocr-table glmv-caption glm-image-generation
+npx clawhub@latest install glmocr glmocr-table glmv-caption glm-image-gen
 ```
 
 ### Method 2: Clone from GitHub
