@@ -1,5 +1,7 @@
 # GLM Skills
 
+[中文文档](README_zh.md)
+
 Official skills for the [GLM](https://github.com/zai-org) family of models, designed for agent architectures including [Claude Code](https://docs.anthropic.com/en/docs/claude-code), [OpenCode](https://github.com/opencode-ai/opencode), [OpenClaw](https://github.com/openclaw/openclaw), [AutoClaw](https://autoglm.zhipuai.cn/autoclaw/), and other AI coding agents.
 
 This repository consolidates skills originally distributed across individual model repos into a single, unified collection.
