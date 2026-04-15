@@ -1,5 +1,5 @@
 ---
-name: glmocr
+name: glmocr-sdk
 description: |
   Trigger when: (1) User wants to extract text, tables, formulas, or structured data from images/PDFs/scanned documents, (2) User mentions "OCR", "文字识别", "文档解析", (3) User has a document (screenshot, scanned page, invoice, paper, whiteboard photo) and needs its content in structured form, (4) User asks to parse, digitize, or extract content from a visual document.
 
@@ -11,8 +11,6 @@ metadata:
     requires:
       env:
         - ZHIPU_API_KEY
-      bins:
-        - python
     primaryEnv: ZHIPU_API_KEY
     emoji: "📄"
     homepage: https://github.com/zai-org/GLM-OCR/tree/main/skills/sdk

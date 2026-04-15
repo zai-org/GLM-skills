@@ -11,8 +11,6 @@ metadata:
       env:
         - ZHIPU_API_KEY
         - GLM_OCR_TIMEOUT
-      bins:
-        - python
     primaryEnv: ZHIPU_API_KEY
     emoji: "📊"
     homepage: https://github.com/zai-org/GLM-OCR/tree/main/skills/glmocr-table

@@ -14,9 +14,6 @@ metadata:
       env:
         - ZHIPU_API_KEY
         - GLM_GROUNDING_TIMEOUT
-      bins:
-        - python
-        - ffmpeg
     primaryEnv: ZHIPU_API_KEY
     emoji: "🖼️"
     source: https://github.com/zai-org/GLM-V/tree/main/skills/glmv-grounding

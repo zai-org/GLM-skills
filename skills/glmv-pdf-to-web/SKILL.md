@@ -7,9 +7,6 @@ description:
   from a PDF — in Chinese or English.
 metadata:
   openclaw:
-    requires:
-      bins:
-        - python
     emoji: "🌐"
     homepage: https://github.com/zai-org/GLM-V/tree/main/skills/glmv-pdf-to-web
 ---

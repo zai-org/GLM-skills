@@ -31,8 +31,8 @@ This is a **documentation-only** master skill.
 
 ### GLM-OCR
 
-| Skill                | Purpose                       | Link                                                                  |
-| -------------------- | ----------------------------- | --------------------------------------------------------------------- |
+| Skill                | Purpose                       | Link                                                                      |
+| -------------------- | ----------------------------- | ------------------------------------------------------------------------- |
 | `glmocr`             | General OCR (text extraction) | https://github.com/zai-org/GLM-skills/tree/main/skills/glmocr             |
 | `glmocr-table`       | Table extraction              | https://github.com/zai-org/GLM-skills/tree/main/skills/glmocr-table       |
 | `glmocr-formula`     | Formula extraction            | https://github.com/zai-org/GLM-skills/tree/main/skills/glmocr-formula     |
@@ -41,14 +41,14 @@ This is a **documentation-only** master skill.
 
 ### GLM-Image
 
-| Skill           | Purpose                  | Link                                                             |
-| --------------- | ------------------------ | ---------------------------------------------------------------- |
+| Skill           | Purpose                  | Link                                                                 |
+| --------------- | ------------------------ | -------------------------------------------------------------------- |
 | `glm-image-gen` | Text-to-image generation | https://github.com/zai-org/GLM-skills/tree/main/skills/glm-image-gen |
 
 ### GLM-V
 
-| Skill                    | Purpose                                                      | Link                                                                      |
-| ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------------------- |
+| Skill                    | Purpose                                                      | Link                                                                          |
+| ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------------------------- |
 | `glmv-caption`           | Image/video/file captioning                                  | https://github.com/zai-org/GLM-skills/tree/main/skills/glmv-caption           |
 | `glmv-prompt-gen`        | Prompt generation from visual input                          | https://github.com/zai-org/GLM-skills/tree/main/skills/glmv-prompt-gen        |
 | `glmv-resume-screen`     | Resume screening                                             | https://github.com/zai-org/GLM-skills/tree/main/skills/glmv-resume-screen     |

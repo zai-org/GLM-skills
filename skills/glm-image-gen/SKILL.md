@@ -11,8 +11,6 @@ metadata:
     requires:
       env:
         - ZHIPU_API_KEY
-      bins:
-        - python
     primaryEnv: ZHIPU_API_KEY
     emoji: "🎨"
     homepage: https://github.com/zai-org/GLM-Image/tree/main/skills/glm-image-gen
