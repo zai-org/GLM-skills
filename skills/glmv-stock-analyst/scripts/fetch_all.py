@@ -200,37 +200,6 @@ def _http_json(url, timeout=15):
         return None
 
 
-def _find_workspace():
-    """定位 agent workspace 目录。
-
-    策略（按优先级）：
-    1. 从脚本位置向上搜索 SOUL.md（兼容 skill 装在 workspace 内的情况）
-    2. 用 OPENCLAW_STATE_DIR 找 base 目录，扫描子目录找 SOUL.md（兼容 skill 装在 skills/ 的情况）
-    """
-    # 策略1：向上搜索（skill 在 workspace 内部时有效）
-    start = os.path.dirname(os.path.abspath(__file__))
-    current = start
-    while True:
-        if os.path.isfile(os.path.join(current, "SOUL.md")):
-            return current
-        parent = os.path.dirname(current)
-        if parent == current:
-            break
-        current = parent
-
-    # 策略2：OPENCLAW_STATE_DIR 下扫描子目录（skill 和 workspace 是兄弟目录时）
-    state_dir = os.environ.get("OPENCLAW_STATE_DIR", "")
-    if state_dir and os.path.isdir(state_dir):
-        for entry in sorted(os.listdir(state_dir)):
-            subdir = os.path.join(state_dir, entry)
-            if os.path.isdir(subdir) and os.path.isfile(
-                os.path.join(subdir, "SOUL.md")
-            ):
-                return subdir
-
-    return None
-
-
 def _detect_market(code):
     """返回 (market, pure_code)。A股优先原则：不确定时默认A股。"""
     c = code.upper().strip()
@@ -711,8 +680,7 @@ def fetch_macro():
         "USD/CNH": "USDCNH=X",
         "上证指数": "000001.SS",
         "沪深300": "000300.SS",
-        # Keep ticker value but avoid codespell false positive on literal token.
-        "恒生指数": "^" + "".join(["H", "S", "I"]),
+        "恒生指数": "^HSI",
         "恒生科技": "^HSTECH",
     }
     if not HAS_YFINANCE:
@@ -1757,13 +1725,11 @@ def main():
     code = args.stock
     market, pure = _detect_market(code)
     ts = datetime.now().strftime("%Y%m%d_%H%M")
-    # 输出目录：--output-dir 参数 > 向上搜索 SOUL.md 定位 workspace > getcwd
+    # 输出目录：--output-dir 参数 > os.getcwd()
     if args.output_dir:
         output_base = args.output_dir
     else:
-        output_base = _find_workspace()
-        if not output_base:
-            output_base = os.getcwd()
+        output_base = os.getcwd()
     out = os.path.abspath(os.path.join(output_base, f"stock_data_output/{pure}_{ts}"))
     os.makedirs(out, exist_ok=True)
 
