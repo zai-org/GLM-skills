@@ -711,8 +711,7 @@ def fetch_macro():
         "USD/CNH": "USDCNH=X",
         "上证指数": "000001.SS",
         "沪深300": "000300.SS",
-        # Keep ticker value but avoid codespell false positive on literal token.
-        "恒生指数": "^" + "".join(["H", "S", "I"]),
+        "恒生指数": "^HSI",
         "恒生科技": "^HSTECH",
     }
     if not HAS_YFINANCE:
