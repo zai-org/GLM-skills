@@ -317,7 +317,9 @@ def get_grounding_results(
         visualize: Whether to visualize the results.
         visualization_dir: Directory to save visualizations.
         **options: Additional API options:
-            - enable_thinking: True - Whether to enable GLM-V's thinking mode. Default True.
+            - enable_thinking: Explicitly control GLM-V thinking mode. Omit this
+              option to let the server default apply. `True` sends
+              `{"type": "enabled"}` and `False` sends `{"type": "disabled"}`.
 
     Returns:
         {
@@ -385,8 +387,10 @@ def get_grounding_results(
         "messages": messages,
     }
 
-    if options.get("enable_thinking", False):
-        payload["thinking"] = {"type": "disabled"}
+    if "enable_thinking" in options:
+        payload["thinking"] = {
+            "type": "enabled" if options["enable_thinking"] else "disabled"
+        }
 
     # Call API
     try:
