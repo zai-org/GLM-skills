@@ -1,7 +1,0 @@
-.DS_Store
-__pycache__/
-*.pyc
-venv/
-stock_data_output/
-output/
-*.egg-info/
