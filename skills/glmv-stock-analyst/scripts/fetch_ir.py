@@ -21,6 +21,7 @@ import json
 import os
 import sys
 import urllib.request
+from urllib.parse import urlparse
 
 try:
     import fitz  # pymupdf
@@ -29,8 +30,21 @@ except ImportError:
     sys.exit(1)
 
 
+# 允许的 URL scheme（仅 HTTPS，防止 file:// 等 SSRF）
+_ALLOWED_SCHEMES = {"https"}
+# 最大下载文件大小（50 MB）
+_MAX_DOWNLOAD_BYTES = 50 * 1024 * 1024
+
+
 def download_pdf(url: str, output_path: str, timeout: int = 30) -> bool:
-    """下载 PDF 文件"""
+    """下载 PDF 文件（仅限 HTTPS）"""
+    parsed = urlparse(url)
+    if parsed.scheme not in _ALLOWED_SCHEMES:
+        print(
+            f"  ❌ 不安全的 URL scheme: {parsed.scheme}（仅支持 HTTPS）",
+            file=sys.stderr,
+        )
+        return False
     try:
         req = urllib.request.Request(
             url,
@@ -39,8 +53,23 @@ def download_pdf(url: str, output_path: str, timeout: int = 30) -> bool:
             },
         )
         resp = urllib.request.urlopen(req, timeout=timeout)
+        # 分块读取，限制最大大小
+        chunks = []
+        total = 0
+        while True:
+            chunk = resp.read(1024 * 1024)  # 1 MB chunks
+            if not chunk:
+                break
+            total += len(chunk)
+            if total > _MAX_DOWNLOAD_BYTES:
+                print(
+                    f"  ❌ 文件超过大小限制 ({_MAX_DOWNLOAD_BYTES // 1024 // 1024} MB)",
+                    file=sys.stderr,
+                )
+                return False
+            chunks.append(chunk)
         with open(output_path, "wb") as f:
-            f.write(resp.read())
+            f.write(b"".join(chunks))
         size_mb = os.path.getsize(output_path) / 1e6
         print(f"  ✅ 下载完成: {size_mb:.1f} MB")
         return True
@@ -49,14 +78,20 @@ def download_pdf(url: str, output_path: str, timeout: int = 30) -> bool:
         return False
 
 
-def pdf_to_pages(pdf_path: str, output_dir: str, dpi: int = 200) -> list[dict]:
+def pdf_to_pages(
+    pdf_path: str, output_dir: str, dpi: int = 200, max_pages: int = 50
+) -> list[dict]:
     """
     PDF 每页转 PNG，同时分析每页的图表密度。
-    返回每页的元信息列表。
+    返回每页的元信息列表。max_pages 限制最大处理页数。
     """
     doc = fitz.open(pdf_path)
     total = len(doc)
-    print(f"  📄 PDF 共 {total} 页，正在转换...")
+    if total > max_pages:
+        print(f"  ⚠️ PDF 共 {total} 页，仅处理前 {max_pages} 页")
+        total = max_pages
+    else:
+        print(f"  📄 PDF 共 {total} 页，正在转换...")
 
     pages = []
     for i in range(total):
@@ -174,7 +209,7 @@ def main():
             sys.exit(1)
 
     # Step 2: 转换所有页面
-    all_pages = pdf_to_pages(pdf_path, out, dpi=args.dpi)
+    all_pages = pdf_to_pages(pdf_path, out, dpi=args.dpi, max_pages=50)
 
     # Step 3: 筛选关键图表页
     key_pages = select_key_pages(all_pages, max_pages=args.max_pages)

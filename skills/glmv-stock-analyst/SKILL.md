@@ -234,6 +234,8 @@ web_search "{公司名} 业绩演示 投资者演示 PPT 2026"
 ```
 找到 PDF 后可用 fetch_ir.py 提取图表。找不到就跳过，不要卡住。
 
+> **fetch_ir.py 安全说明：** 该脚本仅接受 HTTPS URL 下载 PDF（拒绝 file://、http:// 等非安全 scheme），下载大小限制 50 MB，最大处理 50 页。
+
 ---
 
 ### Step 5：⭐⭐ 生成 report.md + 输出 webchat 精炼总结
