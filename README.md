@@ -45,6 +45,12 @@ This repository consolidates skills originally distributed across individual mod
 | ------------------------------------------- | --------------------------------------------------- |
 | [glm-master-skill](skills/glm-master-skill) | Discovery and installation guide for all GLM skills |
 
+### Reasoning
+
+| Skill                           | Description                                                                                                                      |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [fable-mode](skills/fable-mode) | Model-agnostic reasoning playbook: plan before producing, self-refutation, iterative verification, lead-with-result, scope discipline. Content-only, no API key. |
+
 ## Installation
 
 ### Method 1: Install from Clawhub (Recommended)
