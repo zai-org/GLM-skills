@@ -60,7 +60,7 @@ npx clawhub@latest install glmocr glmocr-table glmv-caption glm-image-gen
 ### Method 2: Clone from GitHub
 
 ```bash
-git clone https://github.com/zai-org/skills.git
+git clone https://github.com/zai-org/GLM-skills.git
 # Then follow each skill's SKILL.md for setup instructions
 ```
 
