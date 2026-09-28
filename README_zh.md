@@ -57,7 +57,7 @@ npx clawhub@latest install glmocr glmocr-table glmv-caption glm-image-generation
 ### 方式二：从 GitHub 克隆
 
 ```bash
-git clone https://github.com/zai-org/skills.git
+git clone https://github.com/zai-org/GLM-skills.git
 # 然后按照各 Skill 的 SKILL.md 进行配置
 ```
 
