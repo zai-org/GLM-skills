@@ -61,6 +61,18 @@ git clone https://github.com/zai-org/skills.git
 # 然后按照各 Skill 的 SKILL.md 进行配置
 ```
 
+### 方式三：在 Neotask 中安装
+
+以下五个 GLM-V Skill 已上架 [Neotask Construct](https://construct.neotask.ai/u/zai)，名称带 `zai-` 前缀：
+
+```bash
+neotask construct install zai-glmv-pdf-to-ppt
+neotask construct install zai-glmv-pdf-to-web
+neotask construct install zai-glmv-prd-to-app
+neotask construct install zai-glmv-stock-analyst
+neotask construct install zai-glmv-web-replication
+```
+
 ## API Key
 
 大部分 Skill 需要设置 `ZHIPU_API_KEY` 环境变量。在 [bigmodel.cn](https://bigmodel.cn/usercenter/proj-mgmt/apikeys) 获取 API Key。
