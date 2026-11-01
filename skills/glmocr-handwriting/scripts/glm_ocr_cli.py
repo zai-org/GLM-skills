@@ -214,8 +214,8 @@ def extract_text(
         **options: Additional API options:
             - return_crop_images: bool - Whether to return cropped images (default: False)
             - need_layout_visualization: bool - Whether to need layout visualization
-            - start_page_id: int - Start page ID for PDF
-            - end_page_id: int - End page ID for PDF
+            - start_page_id: int - Optional first PDF page (1-indexed)
+            - end_page_id: int - Optional last PDF page (1-indexed)
 
     Returns:
         {
@@ -259,9 +259,11 @@ def extract_text(
         "file": file_payload,
         "return_crop_images": options.get("return_crop_images", False),
         "need_layout_visualization": options.get("need_layout_visualization", False),
-        "start_page_id": options.get("start_page_id", 1),
-        "end_page_id": options.get("end_page_id", 2),
     }
+    # Omit unspecified bounds so the API does not truncate PDFs to a preview.
+    for key in ("start_page_id", "end_page_id"):
+        if options.get(key) is not None:
+            payload[key] = options[key]
 
     # Call API
     try:
